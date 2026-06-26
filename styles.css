@@ -456,6 +456,38 @@ address {
   color: var(--muted);
 }
 
+.photo-share {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-4);
+  align-items: center;
+  padding: var(--space-4);
+}
+
+.photo-share h3 {
+  margin-bottom: var(--space-2);
+  font-family: var(--font-serif);
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  line-height: 1.15;
+}
+
+.photo-share p {
+  max-width: 720px;
+  color: var(--muted);
+}
+
+.photo-share-note {
+  margin-top: var(--space-2);
+  font-size: 0.9rem;
+}
+
+.photo-share-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-2);
+}
+
 .rsvp-form {
   display: flex;
   flex-direction: column;
@@ -677,6 +709,14 @@ textarea:focus {
     grid-template-columns: 1fr;
     gap: var(--space-1);
   }
+
+  .photo-share {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-share-actions {
+    justify-content: center;
+  }
 }
 
 @media (max-width: 560px) {
@@ -705,9 +745,14 @@ textarea:focus {
   .event-card,
   .address-card,
   .family-card,
+  .photo-share,
   .timeline,
   .rsvp-form {
     padding: var(--space-3);
+  }
+
+  .photo-share-actions .btn {
+    width: 100%;
   }
 }
 
