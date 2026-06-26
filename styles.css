@@ -476,11 +476,6 @@ address {
   color: var(--muted);
 }
 
-.photo-share-note {
-  margin-top: var(--space-2);
-  font-size: 0.9rem;
-}
-
 .photo-share-actions {
   display: flex;
   flex-wrap: wrap;
