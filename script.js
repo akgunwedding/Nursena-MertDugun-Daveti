@@ -33,7 +33,6 @@ const els = {
   navToggle: document.querySelector('.nav-toggle'),
   nav: document.getElementById('primaryNav'),
   navBackdrop: document.getElementById('navBackdrop'),
-  sheetsButton: document.getElementById('sheetsButton'),
 };
 
 function pad(v) { return String(v).padStart(2, '0'); }
@@ -103,51 +102,6 @@ function saveEntry(entry) {
   localStorage.setItem('rsvpEntries', JSON.stringify(arr));
 }
 
-async function sendToSheets() {
-  if (!els.form || !els.sheetsButton) return;
-  const endpoint = (els.form.dataset.sheetsEndpoint || '').trim();
-  if (!endpoint || endpoint.includes('XXXX')) {
-    showToast('Google Sheets bağlantısı tanımlı değil.');
-    return;
-  }
-
-  const data = getFormData();
-  if (!data.fullName) {
-    const f = els.form.querySelector('input[name="fullName"]');
-    if (f) f.focus();
-    return;
-  }
-
-  const btn = els.sheetsButton;
-  const originalText = btn.textContent;
-  btn.disabled = true;
-  btn.textContent = 'Gönderiliyor...';
-
-  try {
-    const body = new URLSearchParams(data).toString();
-    const res = await fetch(endpoint, {
-      method: 'POST',
-      mode: 'cors',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
-      body,
-    });
-
-    if (res.ok || res.type === 'opaque') {
-      saveEntry(data);
-      openModal(`${data.fullName} - ${data.status} - ${data.guests} kişi` + (data.note ? ` - Not: ${data.note}` : ''));
-      showToast("Google Sheets'e gönderildi. Teşekkürler.");
-      els.form.reset();
-    } else {
-      throw new Error('Sheet submit failed');
-    }
-  } catch (err) {
-    showToast('Gönderim başarısız. Lütfen tekrar deneyin.');
-  } finally {
-    btn.disabled = false;
-    btn.textContent = originalText;
-  }
-}
-
 function showToast(text) {
   if (!els.toast) return;
   els.toast.textContent = text;
@@ -197,13 +151,6 @@ if (els.form) {
   });
 }
 
-if (els.sheetsButton) {
-  els.sheetsButton.addEventListener('click', (ev) => {
-    ev.preventDefault();
-    sendToSheets();
-  });
-}
-
 if (els.whatsapp) {
   els.whatsapp.addEventListener('click', () => {
     const d = getFormData();
@@ -214,14 +161,6 @@ if (els.whatsapp) {
       ? `whatsapp://send?phone=${whatsappPhoneNumber}&text=${enc}`
       : `https://web.whatsapp.com/send?phone=${whatsappPhoneNumber}&text=${enc}`;
     window.open(url, '_blank', 'noreferrer');
-  });
-}
-
-const statusSelect = document.querySelector('select[name="status"]');
-const giftInfo = document.getElementById('giftInfo');
-if (statusSelect && giftInfo) {
-  statusSelect.addEventListener('change', (e) => {
-    giftInfo.style.display = e.target.value === 'Gelemiyorum' ? 'block' : 'none';
   });
 }
 

@@ -11,6 +11,8 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Great+Vibes&family=Manrope:wght@300;400;500;600&display=swap"
     rel="stylesheet">
+  <link rel="icon" href="./gorsel1.jpg" type="image/jpeg">
+  <link rel="apple-touch-icon" href="./gorsel1.jpg">
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -154,8 +156,7 @@
           <p class="section-eyebrow">Katılım</p>
           <h2>Katılım Formu</h2>
         </div>
-        <form class="paper rsvp-form" id="rsvpForm" onsubmit="return false;"
-          data-sheets-endpoint="https://script.google.com/macros/s/XXXX/exec">
+        <form class="paper rsvp-form" id="rsvpForm" onsubmit="return false;">
           <div class="form-row">
             <label class="form-field"><span class="field-label">Ad Soyad</span><input type="text" name="fullName"
                 required autocomplete="name"><small class="helper">Lütfen tam adınızı yazınız.</small></label>
@@ -178,18 +179,8 @@
           <label class="form-field"><span class="field-label">Not (opsiyonel)</span><textarea name="note"
               rows="3"></textarea></label>
 
-          <div class="gift-info" id="giftInfo" style="display: none;">
-            <p class="gift-message">Bizim için en büyük hediye güzel dileklerinizdir.</p>
-            <div class="iban-box">
-              <p class="iban-name">Nur Sena &amp; Mert</p>
-              <p class="iban-name">Katkı bilgisi daha sonra paylaşılacaktır.</p>
-            </div>
-            <p class="gift-disclaimer">Katkı tamamen isteğe bağlıdır.</p>
-          </div>
-
           <div class="form-actions">
-            <button id="sheetsButton" class="btn primary" type="button">Google Sheets'e Gönder</button>
-            <a id="whatsappButton" class="btn" href="https://wa.me/905055808758" target="_blank"
+            <a id="whatsappButton" class="btn primary" href="https://wa.me/905055808758" target="_blank"
               rel="noopener noreferrer">WhatsApp ile Gönder</a>
           </div>
         </form>
