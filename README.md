@@ -1,32 +1,16 @@
-# Pelin & Musa - Kına Davetiyesi
+# Nur Sena & Mert Düğün Davetiyesi
 
-Modern ve lüks kına gecesi davetiye web sitesi.
+Akgün ailesi için hazırlanmış kına ve düğün davetiyesi web sitesi.
 
-## Özellikler
+## Etkinlikler
 
-- 💎 Premium glassmorphism tasarım
-- 🎨 Champagne gold renk paleti
-- 📱 Tam responsive (mobil, tablet, desktop)
-- ⏱️ Canlı geri sayım
-- 📍 Google Maps entegrasyonu
-- 📝 WhatsApp entegrasyonlu RSVP formu
-- 🎯 Vanilla JavaScript (framework yok)
+- Kına: 27/06/2026, 19:00-23:00
+- Düğün: 04/07/2026, 19:00-23:00
 
-## Teknolojiler
+## Site
 
-- HTML5
-- CSS3 (Glassmorphism, Custom Properties)
-- Vanilla JavaScript
-- Google Fonts (Playfair Display + Inter)
+Statik HTML, CSS ve JavaScript ile hazırlanmıştır.
 
-## Kurulum
+Yayın adresi:
 
-Statik HTML sitesi - doğrudan tarayıcıda açılabilir. Sunucu gerektirmez.
-
-## Lisans
-
-Kişisel kullanım için.
-
----
-
-**Davetliler:** 26 Mart 2026 • Glory Wedding Venue De Luxe
+https://akgunwedding.github.io/Nursena-MertDugun-Daveti/
