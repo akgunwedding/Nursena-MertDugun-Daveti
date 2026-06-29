@@ -220,11 +220,38 @@ body.nav-open {
 }
 
 .heart-mark {
+  display: flex;
+  width: max-content;
+  gap: 0.1rem;
   margin-bottom: var(--space-3);
-  color: var(--text);
-  font-size: 1.4rem;
-  line-height: 1;
-  letter-spacing: -0.25rem;
+}
+
+.heart-mark span {
+  position: relative;
+  width: 18px;
+  height: 16px;
+  transform: rotate(-45deg);
+  background: var(--text);
+}
+
+.heart-mark span::before,
+.heart-mark span::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--text);
+}
+
+.heart-mark span::before {
+  top: -8px;
+  left: 0;
+}
+
+.heart-mark span::after {
+  top: 0;
+  left: 8px;
 }
 
 .eyebrow,
@@ -686,6 +713,11 @@ textarea:focus {
   .hero-actions,
   .form-actions {
     justify-content: center;
+  }
+
+  .heart-mark {
+    margin-right: auto;
+    margin-left: auto;
   }
 
   .hero-image {
